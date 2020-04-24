@@ -1,1 +1,9 @@
-<p>search works!</p>
+<div class="row">
+	<div class="col">
+		<input type="text" (keyup)="buscar(search.value)" class="form-control" placeholder="Search artist... " #search>
+	</div>
+</div>
+
+<app-loading *ngIf="loading"></app-loading>
+
+<app-cards [items]="artistList"></app-cards>

@@ -9,13 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent{
 
 	newAlbums: any[] = [];
+	loading: boolean; 
 
 	constructor( private spotifySvc : SpotifyService) {	
-		this.spotifySvc.getNewReleases().subscribe( (response: any) => {
-			this.newAlbums = response.albums.items;
+
+		this.loading = true;
+
+		this.spotifySvc.getNewReleases().subscribe( (data: any) => {
+			this.newAlbums = data;
+			this.loading = false;
 		});
 	}
-
 
 }
 
